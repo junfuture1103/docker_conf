@@ -3,6 +3,9 @@ FROM ubuntu:22.04
 
 # install assential
 RUN apt-get update && apt-get install -y
+RUN apt install -y git
+
+WORKDIR /root
 RUN apt install vim git gcc ssh curl wget gdb sudo zsh python3 python3-pip libffi-dev build-essential libssl-dev libc6-i386 libc6-dbg gcc-multilib make -y
 RUN python3 -m pip install --upgrade pip
 
@@ -20,6 +23,6 @@ RUN echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 RUN echo "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=111'" >> ~/.zshrc
 
 # set pwnable conf
-RUN git clone https://github.com/junfuture1103/pwnable_conf
-RUN cd pwnable_conf
-RUN ./setup.sh
+# RUN git clone https://github.com/junfuture1103/pwnable_conf
+# RUN cd pwnable_conf
+# RUN ./setup.sh
