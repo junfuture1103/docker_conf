@@ -22,7 +22,11 @@ RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosu
 RUN echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 RUN echo "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=111'" >> ~/.zshrc
 
-# set pwnable conf
-# RUN git clone https://github.com/junfuture1103/pwnable_conf
-# RUN cd pwnable_conf
-# RUN ./setup.sh
+#set pwnable conf
+RUN git clone https://github.com/junfuture1103/pwnable_conf
+WORKDIR /pwnable_conf
+RUN ./setup.sh
+
+#set gdb-peda
+RUN git clone https://github.com/longld/peda.git ~/peda
+RUN echo "source ~/peda/peda.py" >> ~/.gdbinit
